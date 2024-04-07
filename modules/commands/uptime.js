@@ -1,21 +1,21 @@
 module.exports.config = {
-  name: "uptime",
-  version: "1.0.0",
-  hasPermssion: 0,
-  credits: "Mirai-Team",
+	name: "uptime",
+	version: "1.0.0",
+	hasPermssion: 0,
+	credits: "Mirai-Team",
   hide: true,
-  description: "Random images by api - uptime",
-  commandCategory: "administrators",
-  cooldowns: 2,
+	description: "Random images by api - uptime",
+	commandCategory: "administrators",
+	cooldowns: 2,
   dependencies: {
-    "pidusage": ""
-  }
+		"pidusage": ""
+	}
 };
 function byte2mb(bytes) {
-  const units = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-  let l = 0, n = parseInt(bytes, 10) || 0;
-  while (n >= 1024 && ++l) n = n / 1024;
-  return `${n.toFixed(n < 10 && l > 0 ? 1 : 0)} ${units[l]}`;
+	const units = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+	let l = 0, n = parseInt(bytes, 10) || 0;
+	while (n >= 1024 && ++l) n = n / 1024;
+	return `${n.toFixed(n < 10 && l > 0 ? 1 : 0)} ${units[l]}`;
 }
 module.exports.run = async ({ api, event, args , Threads}) => {
   var username = process.env.REPL_OWNER
@@ -23,10 +23,10 @@ module.exports.run = async ({ api, event, args , Threads}) => {
     var urlRepl = `https://${process.env.REPL_SLUG}.${username}.repl.co`
 }
   var os = require("os");
-  var cpus = os.cpus();
-  var chips;
-  for (var i of cpus) chips = i.model, speed = i.speed;
-  if (cpus == undefined);
+	var cpus = os.cpus();
+	var chips;
+	for (var i of cpus) chips = i.model, speed = i.speed;
+	if (cpus == undefined);
 var time = process.uptime(),
         hours = Math.floor(time / (60 * 60)),
         minutes = Math.floor((time % (60 * 60)) / 60),
@@ -40,8 +40,8 @@ var time = process.uptime(),
     const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX 
     : global.config.PREFIX;
     const { commands } = global.client;
-  const pidusage = await global.nodemodule["pidusage"](process.pid);
-  const timeStart = Date.now();
+	const pidusage = await global.nodemodule["pidusage"](process.pid);
+	const timeStart = Date.now();
   const fs = require('fs-extra');
    if (!fs.existsSync(__dirname +
         `/cache/UTM-Avo.ttf`)) {
@@ -59,7 +59,7 @@ var time = process.uptime(),
       fs.writeFileSync(__dirname + `/cache/CaviarDreams.ttf`, Buffer.from(getfont3, "utf-8"));
     };
    const { loadImage, createCanvas, registerFont } = require("canvas");
-
+  
   let k = args[0];
    if(args[0] == "list"){
     const alime = (await axios.get('https://raw.githubusercontent.com/quyenkaneki/data/main/dataanime.json')).data
@@ -96,8 +96,8 @@ var time = process.uptime(),
     const path = require('path');
 
   //const a = Math.floor(Math.random() * 820) + 1
-
-
+  
+  
 let l1 = await loadImage(pathAva);
     let a = await loadImage(pathImg);
     let canvas = createCanvas(a.width, a.height);
@@ -131,16 +131,16 @@ registerFont(__dirname + `/cache/CaviarDreams.ttf`, {
     });
     ctx.textAlign = "start";
     ctx.font = "55px time";
-    ctx.fillText("ARUN", 930, 540)
-    ctx.fillText("Arun Kumar", 930, 610)
-    ctx.fillText("Arun Kumar", 930, 690)
+    ctx.fillText("ABIR BOSS", 930, 540)
+    ctx.fillText("ABIR Boss", 930, 610)
+    ctx.fillText("ABIR BOSS", 930, 690)
     ctx.restore();
     ctx.save();
     ctx.beginPath();
     const imageBuffer = canvas.toBuffer();
    fs.writeFileSync(pathImg, imageBuffer);
   return api.sendMessage({
-    body: `Server Information\n\nChip: ${chips}.\nProcessing Speed: ${speed}MHz.\n\nTotal Memory: ${byte2mb(os.totalmem())}.\nUsed: ${byte2mb(os.freemem())} (${(os.freemem() * 100 / os.totalmem()).toFixed()}%).\n\nBot is running up ${hours} hours ${minutes} minute ${seconds} seconds.\n\n❯ Total users: ${global.data.allUserID.length}\n❯ Total Group: ${global.data.allThreadID.length}\n❯ CPU in use: ${pidusage.cpu.toFixed(1)}%\n❯ Ram in use: ${byte2mb(pidusage.memory)}\n❯ Ping: ${Date.now() - timeStart}ms\n❯ Character ID: ${id}\n❯ Admin Faceboook:\n  https://www.facebook.com/arun.x76`,
+    body: `Server Information\n\nChip: ${chips}.\nProcessing Speed: ${speed}MHz.\n\nTotal Memory: ${byte2mb(os.totalmem())}.\nUsed: ${byte2mb(os.freemem())} (${(os.freemem() * 100 / os.totalmem()).toFixed()}%).\n\nBot is running up ${hours} hours ${minutes} minute ${seconds} seconds.\n\n❯ Total users: ${global.data.allUserID.length}\n❯ Total Group: ${global.data.allThreadID.length}\n❯ CPU in use: ${pidusage.cpu.toFixed(1)}%\n❯ Ram in use: ${byte2mb(pidusage.memory)}\n❯ Ping: ${Date.now() - timeStart}ms\n❯ Character ID: ${id}\n❯ Admin Faceboook:\https://www.facebook.com/100071880593545`,
     attachment: fs.createReadStream(pathImg)
   },
     event.threadID,
@@ -148,4 +148,4 @@ registerFont(__dirname + `/cache/CaviarDreams.ttf`, {
     fs.unlinkSync(pathAva),
     event.messageID
   );
-}
+      }
