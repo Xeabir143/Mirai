@@ -1,8 +1,8 @@
 module.exports.config = {
-	name: "inf",
+	name: "info",
 	version: "1.0.1", 
 	hasPermssion: 0,
-	credits: "Arun Kumar", //don't change the credits please
+	credits: "Joshua Sy", //don't change the credits please
 	description: "Admin and Bot info.",
 	commandCategory: "info",
 	cooldowns: 1,
@@ -14,7 +14,7 @@ module.exports.config = {
   }
 };
 module.exports.run = async function({ api,event,args,client,Users,Threads,__GLOBAL,Currencies }) {
-const axios = global.nodemodule["axios"];
+const axios = global.nodemodule["axios"]
 const request = global.nodemodule["request"];
 const fs = global.nodemodule["fs-extra"];
 const time = process.uptime(),
@@ -22,30 +22,46 @@ const time = process.uptime(),
 		minutes = Math.floor((time % (60 * 60)) / 60),
 		seconds = Math.floor(time % 60);
 const moment = require("moment-timezone");
-var juswa = moment.tz("Asia/Kolkata").format("『D/MM/YYYY』 【HH:mm:ss】");
-var link =                                     
-["https://i.postimg.cc/4yVw6tm7/Picsart-23-03-26-11-08-19-025.jpg", "https://i.imgur.com/rg0fjQE.jpg", "https://i.imgur.com/QcNXYfT.jpg", "https://i.imgur.com/WhVSHLB.png"];
-var callback = () => api.sendMessage({body:`🌹𝙰𝙳𝙼𝙸𝙽 𝙰𝙽𝙳 𝙱𝙾𝚃 𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚃𝙸𝙾𝙽 🇮🇳 
+var juswa = moment.tz("Asia/Manila").format("『D/MM/YYYY』 【hh:mm:ss】");
+var link = ["https://i.imgur.com/1QaosHO.jpg", 
+            
+            "https://i.imgur.com/1BurIt1.jpg", 
+            
+            "https://i.imgur.com/tUFeHX3.jpg",
 
+"https://i.imgur.com/iS52fh5.jpg",
+            
+            "https://i.imgur.com/1QaosHO.jpg"];
+  
+var callback = () => api.sendMessage({body:`ADMIN AND BOT INFORMATION 
+________________________________________
 
-☄️𝗕𝗢𝗧 𝗡𝗔𝗠𝗘☄️ ⚔ ${global.config.BOTNAME} ⚔
+❇️🅑︎🅞︎🅣︎ 🅝︎🅐︎🅜︎🅔︎ : ${global.config.BOTNAME}
 
-🔥𝗢𝗪𝗡𝗘𝗥 🔥☞︎︎︎ 𝙰𝚛𝚞𝚗 𝙺𝚞𝚖𝚊𝚛 ☜︎︎︎✰ \n\n
-🙈🄾🅆🄽🄴🅁 🄲🄾🄽🅃🄰🄲🅃 🄻🄸🄽🄺🅂🙈➪ \n\n  𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞 🧨https://www.facebook.com/arun.x76 💞🕊️
-  \n 
-✅𝗜𝗡𝗦𝗧𝗔𝗚𝗥𝗔𝗠 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘👉 @arunkumar_031 \n\n  ====𝗧𝗼 𝗹𝗲𝗮𝗿𝗻 𝗛𝗼𝘄 𝘁𝗼 𝗖𝗿𝗲𝗮𝘁𝗲 𝗔 𝗯𝗼𝘁 === 𝗩𝗶𝘀𝗶𝘁 𝗔𝗻𝗱 𝗦𝘂𝗯𝘀𝗰𝗿𝗶𝗯𝗲 𝗧𝗼 𝗠𝘆 𝗖𝗵𝗮𝗻𝗻𝗲𝗹✅ 🗡 https://www.youtube.com/@mirrykal
-✧══════•❁❀❁•══════✧
+❇️𝐁𝐎𝐓 𝐀𝐅𝐌𝐈𝐍 : 𝐈𝐓𝐙 ABIR
 
-🌸𝗕𝗼𝘁 𝗣𝗿𝗲𝗳𝗶𝘅🌸☞︎︎︎☜︎︎︎✰ ${global.config.PREFIX}
+❇️𝐀𝐃𝐃𝐑𝐄𝐒𝐒 : RAJSHAHI 𝐂𝐈𝐓𝐘
 
-🥳UPTIME🥳
+_____________CONTACT_____________
 
-🌪️Today is🌪️ ☞︎︎︎☜︎︎︎✰ ${juswa} 
+❇️𝐅𝐀𝐂𝐄𝐁𝐎𝐎𝐊 𝐈𝐃: https://www.facebook.com/br4nd.abir.your.next.bf.fan
 
-⚡Bot is running⚡ ${hours}:${minutes}:${seconds}.
+❇️𝐅𝐀𝐂𝐄𝐁𝐎𝐎𝐊 𝐏𝐀𝐆𝐄 : https://www.facebook.com/br4nd.abir.your.next.bf.fan🤟🤟
 
-✅Thanks for using My Bot ❤ ${global.config.BOTNAME} 🖤
+❇️𝐁𝐎𝐓 𝐏𝐑𝐄𝐅𝐈𝐗 : ${global.config.PREFIX}
 
-`,attachment: fs.createReadStream(__dirname + "/cache/juswa.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/juswa.jpg")); 
-      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname + "/cache/juswa.jpg")).on("close",() => callback());
+❇️𝐁𝐎𝐓 𝐎𝐖𝐍𝐄𝐑 : {𝐂𝐑𝐔𝐒𝐇 ABIR}
+
+OTHER NFORMATION____________________
+
+TYPE /admin 
+
+➟ UPTIME
+
+TODAY IS TIME : ${juswa} 
+
+BOT IS RUNNING ${hours}:${minutes}:${seconds}.
+
+THANKS FOR USING ${global.config.BOTNAME} 『🤖🖤』`,attachment: fs.createReadStream(__dirname + "/cache/juswa.jpg")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/juswa.jpg")); 
+      return request(encodeURI(link[Math.floor(Math.random() * link.length)])).pipe(fs.createWriteStream(__dirname+"/cache/juswa.jpg")).on("close",() => callback());
    };
