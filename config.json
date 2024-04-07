@@ -26,7 +26,7 @@
     "PASSWORD": "",
     "OTPKEY": "",
     "BOTNAME": "Hot🔥",
-    "PREFIX": ".",
+    "PREFIX": "/",
     "OTHERBOT": [
         ""
     ],
@@ -45,7 +45,7 @@
         ""
     ],
     "ADMINBOT": [
-        "M Boss: 61557481726661",
+        "",
         "100071880593545",
         "",
         "",
